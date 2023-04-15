@@ -1,8 +1,3 @@
---- NOMBRES JOHN RENE ALVAREZ , Steve Jamesley Marcelin , luis jose
---- MATRICULA 2020-0088,20200575,20200573
---john24BD.mssql.somee.com
---Login name:	John0124_SQLLogin_1
---Login password:	p6sqhpebfq
 
 
 use  john24BD
@@ -41,10 +36,10 @@ CREATE PROCEDURE Procedimiento_cliente
 AS
 BEGIN TRANSACTION Reg_Cliente
 BEGIN TRY
---Si el usuario existe, ser· actualizado
+--Si el usuario existe, ser√° actualizado
 if exists (select id_cliente from CLIENTE where id_cliente = @id_cliente)
 begin
-print 'Este usario existe y ser· actualizado.'
+print 'Este usario existe y ser√° actualizado.'
 update CLIENTE
 set
 /* id_cliente = @id_cliente, No se pone porque tiene un tipo de datos Identity*/
@@ -71,7 +66,7 @@ COMMIT TRAN Reg_Cliente
 END TRY
 
 BEGIN CATCH
-print 'OcurriÛ un error durante la transaccion: ' + ERROR_MESSAGE()
+print 'Ocurri√≥ un error durante la transaccion: ' + ERROR_MESSAGE()
 ROLLBACK TRAN Reg_Cliente
 END CATCH
 
@@ -147,7 +142,7 @@ COMMIT TRAN Reg_cuenta
 END TRY
 
 BEGIN CATCH
-PRINT 'OcurriÛ un error durante la transaccion: ' +ERROR_MESSAGE()
+PRINT 'Ocurri√≥ un error durante la transaccion: ' +ERROR_MESSAGE()
 END CATCH
 
 ---Tabla entidad financiera
@@ -268,10 +263,10 @@ AS
 BEGIN TRANSACTION Reg_Prestamo
 
 BEGIN TRY
---Si el prestamo existe, ser· actualizado
+--Si el prestamo existe, ser√° actualizado
 if exists (select @num_prestamo from PRESTAMOS where @num_prestamo = @num_prestamo)
 begin
-print 'Este prestamo ya existe y ser· actualizado.'
+print 'Este prestamo ya existe y ser√° actualizado.'
 --Actualiza el prestamo
 update prestamos
 set
@@ -300,7 +295,7 @@ COMMIT TRAN Reg_Prestamo
 END TRY
 
 BEGIN CATCH
-PRINT 'OcurriÛ un error durante la transaccion: ' +ERROR_MESSAGE()
+PRINT 'Ocurri√≥ un error durante la transaccion: ' +ERROR_MESSAGE()
 END CATCH
 --- funcion
 CREATE FUNCTION BALANCE_MONTO(@balance_cuenta int) RETURNS INT
